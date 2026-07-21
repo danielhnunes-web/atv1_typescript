@@ -34,7 +34,7 @@ h2 {
 }
 
 
-.formulario {
+#formulario {
     background: #ffffff;
     padding: 25px;
     border-radius: 8px;
@@ -45,7 +45,7 @@ h2 {
 }
 
 
-.formulario input {
+#formulario input {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ccc;
@@ -56,7 +56,7 @@ h2 {
 }
 
 
-.formulario input:focus {
+#formulario input:focus {
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
@@ -93,11 +93,12 @@ table {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     margin-top: 15px;
+    
 }
 
 th, td {
     padding: 14px 16px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -111,19 +112,34 @@ th {
 
 
 tr:nth-child(even) {
-    background-color: #f9fbfd;
+    background-color: #cce3fa;
 }
 
 
 tbody tr:hover {
     background-color: #f1f4f8;
+
 }
 
 
-td {
+tr {
     border-bottom: 1px solid #eef2f5;
     font-size: 15px;
 }
+
+
+
+#listaClientes tr{
+    background-color: #5faee2;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    text-align: center;
+}
+
 
 
 .btn-editar, .btn-excluir {
@@ -135,6 +151,9 @@ td {
     font-size: 13px;
     margin-right: 5px;
     transition: background-color 0.2s ease;
+    padding: 10px 12px;
+    position: relative;
+    top: 8px;
 }
 
 .btn-editar {
@@ -154,6 +173,8 @@ td {
 .btn-excluir:hover {
     background-color: #c0392b;
 }
+
+
 
 @media (max-width: 600px) {
     body {
