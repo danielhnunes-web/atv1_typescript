@@ -1,46 +1,142 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CRUD de Clientes</title>
 
-        <link rel="stylesheet" href="css/style.css">
-        
-        <!-- <script src="app.tsx/app.ts" defer></script> -->
-        <script src="app.tsx/script.js" defer></script>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CRUD de Clientes</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="app.tsx/script.js" defer></script>
+
+
 </head>
 
 <body>
 
+
+<main class="container">
+
     <h1>Cadastro de Clientes</h1>
 
+    <!-- Formulário de cadastro e edição -->
     <form id="formulario">
-        <input type="text" id="nome" placeholder="Nome" name="nome">
-        <input type="email" id="email" placeholder="Email" name="email">
-        <input type="number" id="telefone" placeholder="Telefone" name="telefone">
-        <button id="btnSalvar" type="submit">
-            Salvar Cliente
-        </button>
+
+        <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Nome"
+            required
+        >
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+        <!--
+            Formato aceito:
+
+            (79) 91234-5678
+
+            pattern:
+            \([0-9]{2}\)
+            -> DDD entre parênteses
+
+            [0-9]{5}
+            -> cinco números após o DDD
+
+            -
+            -> hífen obrigatório
+
+            [0-9]{4}
+            -> quatro números finais
+        -->
+        <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            placeholder="(79) 91234-5678"
+            pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"
+            title="Digite o telefone no formato: (79) 91234-5678"
+            maxlength="15"
+            required
+        >
+
+        <div class="botoes-formulario">
+
+            <button id="btnSalvar" type="submit">
+                Salvar Cliente
+            </button>
+
+            <!--
+                Esse botão só aparece durante a edição
+            -->
+            <button
+                id="btnCancelar"
+                type="button"
+                class="btn-cancelar"
+                hidden
+            >
+                Cancelar Edição
+            </button>
+
+        </div>
+
     </form>
+
+    <!-- Área de pesquisa -->
+    <section class="area-pesquisa">
+
+        <h2>Pesquisar Cliente</h2>
+
+        <input
+            type="search"
+            id="inputPesquisa"
+            placeholder="Digite o nome do cliente..."
+        >
+
+    </section>
 
     <h2>Lista de Clientes</h2>
 
-    <table>
-        <thead>
-            <tr class="titulos">
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody id="listaClientes">
-        </tbody>
-    </table>
+    <!--
+        O container permite rolagem horizontal
+        em telas pequenas.
+    -->
+    <div class="tabela-container">
 
+        <table>
+
+            <thead>
+
+                <tr class="titulos">
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="listaClientes">
+                <!-- Clientes serão inseridos pelo JavaScript -->
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+```
 
 </body>
 
